@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="STYLESHEET" href="../css/menu.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOMADE - Menu</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../imagenesDos/logos/logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header id="contenedor-header"></header>
+    <div id="contenedor-nav"></div>
+    <main>
+        <h1>Menu</h1> 
+        <h2>Lista API-Bebidas</h2>
+        <div class="container-botones">
+            <button id="view-button" class="" onclick="retrieveDrinks();">Ver Tragos</button>
+            <button id="clear-button" class="hide" onclick="clearTable();">Ocultar Lista</button>
+        </div>        
+        <div class="container-api">
+            <table>
+            <tbody id="tableDrinkBody">
+            </tbody>
+            </table>
+        </div>
+        <h2>Lista Local-Json-Platillos</h2>
+        <div class="container-botones">
+            <button id="view-buttonDos" class="" onclick="retrieveFood();">Ver Platillos</button>
+            <button id="clear-buttonDos" class="hide" onclick="clearTableDos();">Ocultar Lista</button>
+        </div>
+        <div class="container-api">
+            <table>
+            <tbody id="tableFoodBody">
+            </tbody>
+            </table>
+        </div>
+    </main>
+    <footer id="contenedor-footer"></footer>
+</body>
+<script src="../javaScripts/DOM.js"></script>
+<script src="../javaScripts/prueba.js"></script>
+<script src="../javaScripts/pruebaDos.js"></script>
+</html>
