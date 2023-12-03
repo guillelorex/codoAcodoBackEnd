@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Usuario</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <h1>Modificar Usuario</h1>
+    <div id="app">
+        <form @submit.prevent="obtenerBebida">
+            <label for="codigo">Código:</label>
+            <input type="text" v-model="codigo" required><br>
+            <button type="submit">Modificar</button>
+
+            <a href="index.html">Menu principal</a>
+            </form>
+            <div v-if="mostrarDatosUsuario">
+            <h2>Datos del Usuario</h2>
+            <form @submit.prevent="guardarCambios">
+            <label for="nombreModificar">Nombre:</label>
+            <input type="text" id="nombreModificar" v-model="nombre" required><br>
+
+            <label for="apellidoModificar">Apellido:</label>
+            <input type="text" id="apellidoModificar" v-model="apellido" required><br>
+
+            <label for="mailModificar">Mail:</label>
+            <input type="text" id="mailModificar" v-model="mail" required><br>
+
+            <label for="tipoUsModificar">Tipo de usuario:</label>
+            <input type="text" id="tipoUsModificar" v-model="tipoUs" required><br>
+            
+            <button type="submit">Guardar Cambios</button>
+            <a href="ModificarUsuario.html">Cancelar</a>
+        </form>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="javaScripts\ModificarUsuario.js"></script>
+</body>
+</html>
