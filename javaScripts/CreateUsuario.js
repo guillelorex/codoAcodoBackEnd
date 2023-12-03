@@ -7,8 +7,8 @@ var formData = new FormData();
 formData.append('codigo', document.getElementById('codigo').value);
 formData.append('nombre',document.getElementById('nombre').value);
 formData.append('apellido', document.getElementById('precio').value);
-formData.append('mail',document.getElementById('imagen').files[0]);
-formData.append('usuario',document.getElementById('imagen').files[0]);
+formData.append('mail',document.getElementById('mail').value);
+formData.append('usuario',document.getElementById('usuario').value);
 
 // Realizamos la solicitud POST al servidor
 fetch(URL + 'productos', {
