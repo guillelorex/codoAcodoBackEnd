@@ -202,11 +202,6 @@ class Pedido:
 #--------------------------------------------------------------------------------------
 Pedido = Pedido(host='address:guillelorex.mysql.pythonanywhere-services.com', user='guillelorex', password='nomade123', database='guillelorex$nomade_db')
 RUTA_DESTINO = './static/imagenes/'
-
-# host: Es el que nos proporcionó el sitio. Lo podemos ver en la pestaña "Databases"
-# user: Es el usuario de la base de datos,
-# password: Es el password que elegimos para la base de datos
-# database: El nombre de la base de datos, generalmente tu_usuario$base_de_datos
 #--------------------------------------------------------------------------------------
 
 @app.route("/bebidas", methods=["GET"]) #definir página HECHO

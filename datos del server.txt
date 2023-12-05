@@ -1,0 +1,16 @@
+Database host address:guillelorex.mysql.pythonanywhere-services.com
+
+Username:guillelorex
+
+pass nomade123
+
+base de datos guillelorex$default
+
+app.py es my web
+
+
+
+viejo puerto 3306
+
+
+
