@@ -1,10 +1,10 @@
-
+# Instalar con pip install Flask IMPORTANTE ISTALAR EN BASH ESTAS COSAS
 from flask import Flask, request, jsonify, render_template
-
+# Instalar con pip install flask-cors
 from flask_cors import CORS
-
+# Instalar con pip install mysql-connector-python
 import mysql.connector
-
+# Si es necesario, pip install Werkzeug
 from werkzeug.utils import secure_filename
 
 import os
@@ -13,6 +13,9 @@ import time
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/')
+def hello():
+    return 'gola soy una pagina'
 
 # Creo la BD------------------------------------------
 class Pedido:
@@ -32,8 +35,7 @@ class Pedido:
                 self.conn.database = database
             else:
                 raise err
-
-    #--------------------------------------------------------------------
+ #--------------------------------------------------------------------
     # Creo las tablas----------------------------------------------------
 
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS bebidas (
@@ -63,23 +65,28 @@ class Pedido:
 
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS reservas (
             idReserva INT primary key NOT NULL,
-            idCliente INT foreign key references clientes(idCliente) NOT NULL,
+            idCliente INT NOT NULL,
+            foreign key (idCliente) references clientes(idCliente),
             fecha DATE NOT NULL,
-            cantPersons INT)
+            cantPersonas INT)
                             ''')
         self.conn.commit()
 
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS reservasPlatillos (
             idReservaPlatillo INT auto_increment primary key,
-            idReserva INT foreign key references reservas(idReserva),
-            idPlatillo INT foreign key references platillos(idPlatillo))
+            idReserva INT,
+            foreign key (idReserva) references reservas(idReserva),
+            idPlatillo INT,
+            foreign key (idPlatillo) references platillos(idPlatillo))
                             ''')
         self.conn.commit()
 
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS reservasBebidas (
             idReservaPlatillo INT auto_increment primary key,
-            idReserva INT foreign key references reservas(idReserva),
-            idBebida INT foreign key references bebidas(idBebida))
+            idReserva INT,
+            foreign key (idReserva) references reservas(idReserva),
+            idBebida INT,
+            foreign key (idBebida) references bebidas(idBebida))
                             ''')
         self.conn.commit()
 
@@ -157,7 +164,6 @@ class Pedido:
     def consultar_reserva(self, idReserva):
         self.cursor.execute(f"SELECT * FROM reservas WHERE idReserva = {idReserva}")
         return self.cursor.fetchone()
-    
 #------------------------------------------------------------------------
     def modificar_bebida(self, idBebida, nuevo_nombre, nuevo_precio, nueva_imagen):
         sql = "UPDATE bebidas SET nombre = %s, precio = %s, imagen = %s WHERE idBebida = %s"
@@ -186,6 +192,7 @@ class Pedido:
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
+
 
 #--------------------------------------------------------------------------------------------
     def eliminar_bebida(self, idBebida):
@@ -263,25 +270,24 @@ class Pedido:
     def listar_bebidas(self):
         self.cursor.execute("SELECT * FROM bebidas")
         return self.cursor.fetchall()
-    
+
     def listar_platillos(self):
         self.cursor.execute("SELECT * FROM platillos")
         return self.cursor.fetchall()
-    
+
     def listar_clientes(self):
         self.cursor.execute("SELECT * FROM clientes")
         return self.cursor.fetchall()
-    
+
     def listar_reservas(self):
         self.cursor.execute("SELECT * FROM reservas")
         return self.cursor.fetchall()
-
 #--------------------------------------------------------------------------------------
 Pedido = Pedido(host='guillelorex.mysql.pythonanywhere-services.com', user='guillelorex', password='nomade123', database='guillelorex$nomade_db')
 RUTA_DESTINO = './static/imagenes/'
 
-# o este HOST guillelorex.pythonanywhere.com
-
+# o este host='guillelorex.pythonanywhere.com'
+# host='guillelorex.mysql.pythonanywhere-services.com'
 # host: Es el que nos proporcionó el sitio. Lo podemos ver en la pestaña "Databases"
 # user: Es el usuario de la base de datos,
 # password: Es el password que elegimos para la base de datos
@@ -355,7 +361,7 @@ def agregar_bebida():
 
 
     bebida = Pedido.consultar_bebida(idBebida)
-    if not bebida: 
+    if not bebida:
         nombre_imagen = secure_filename(imagen.filename) #definir imagenes y rutas
         nombre_base, extension = os.path.splitext(nombre_imagen)
         nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
@@ -375,7 +381,7 @@ def agregar_platillo():
 
 
     platillo = Pedido.consultar_platillo(idPlatillo)
-    if not platillo: 
+    if not platillo:
         nombre_imagen = secure_filename(imagen.filename) #definir imagenes y rutas
         nombre_base, extension = os.path.splitext(nombre_imagen)
         nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
@@ -529,9 +535,9 @@ def eliminar_cliente(idCliente):
         return jsonify({"mensaje": "Cliente eliminado"}), 200
     else:
         return jsonify({"mensaje": "Error al eliminar el cliente"}), 500
-    
+
 @app.route("/reservas/<int:idReserva>", methods=["DELETE"]) #Definir ruta HECHO
-def eliminar_cliente(idReserva):
+def eliminar_reserva(idReserva):
 
     if Pedido.eliminar_reserva(idReserva):
         return jsonify({"mensaje": "Reserva eliminado"}), 200
@@ -539,6 +545,3 @@ def eliminar_cliente(idReserva):
         return jsonify({"mensaje": "Error al eliminar el reserva"}), 500
 #-----------------------------------------------------------------------------------------------
 
-#ESto no se para que es, pero por las dudas lo agrego, esta en el ejemplo
-if __name__ == "__main__":
-    app.run(debug=True)
