@@ -64,6 +64,11 @@ navContainer.innerHTML = `
     <a href="reservas.html">Reservas</a>
 	<a href="Quienes.html">Quienes Somos</a>
     <a href="eventos.html">Eventos</a>
+	<a href="CRUDbebidas.html">Bebidas</a>
+	<a href="CRUDmenu.html">Menu</a>
+	<a href="CRUDusuario.html">Usuario</a>
+			
+	
 </nav>
 `;
 
