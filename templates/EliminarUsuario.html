@@ -3,43 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="../imagenesDos/logos/logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baja Usuario</title>
-    <link rel="shortcut icon" type="image/x-icon" href="imagenesDos\logos\logo.jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="STYLESHEET" href="../css/index.css">
-
-    
 </head>
 <body>
+    <header id="contenedor-header"></header>
+    <div id="contenedor-nav"></div>
     <h1>Baja de Usuarios</h1>
-<table>
-    <thead>
-        <tr>
-        <th>Código</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Tipo de Usuario</th>
-        <th>Acciones</th>
-        </tr>
-        </thead>
-    <tbody>
-        <tr v-for="u in usuarios">
-        <td>{{ u.codigo }}</td>
-        <td>{{ u.nombre }}</td>
-        <td>{{ u.apellido }}</td>
-        <td>{{ u.mail }}</td>
-        <td>{{ u.usuario }}</td>
-        <td><button @click="eliminarUsuario(u.codigo)">Eliminar</button></td>
-        </tr>
-    </tbody>
-</table>
+    <center>
+    <table>
+        <thead>
+            <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Tipo de Usuario</th>
+            <th>Acciones</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr v-for="cliente in clientes">
+            <td>{{ cliente.codigo }}</td>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.apellido }}</td>
+            <td>{{ cliente.mail }}</td>
+            <td>{{ cliente.usuario }}</td>
+            <td><button @click="eliminarCliente(cliente.codigo)">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    
 <div class="contenedor-centrado">
-<a href="index.html">Menu principal</a>
-</div>
+<a href="../CRUDusuario.html">Menu principal</a>
+</center>
+
+<footer id="contenedor-footer"></footer>
 <script src="https://unpkg.com/vue@next"></script>
 <script src="../javaScripts/EliminarUsuario.js"></script>
-<script src="../javaScripts/EliminarUsuario.js"></script>
+<script src="../javaScripts/dom.js"></script>
 </body>
 </html>
