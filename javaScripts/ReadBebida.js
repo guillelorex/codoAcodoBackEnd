@@ -1,7 +1,6 @@
-const URL = "http://127.0.0.1:5000/"
-// Realizamos la solicitud GET al servidor para obtener todos los
-productos
-fetch(URL + 'productos')
+const URL = "https://guillelorex.pythonanywhere.com/"
+// Realizamos la solicitud GET al servidor para obtener todos los productos
+fetch(URL + 'bebidas')
     .then(function (response) {
         if (response.ok) {
             return response.json();
@@ -11,13 +10,14 @@ fetch(URL + 'productos')
             }
             })
     .then(function (data) {
-        let tablaBebida = document.getElementById('tablaMenu');
-    for (let bebida of data) {
+        let tablaBebida = document.getElementById('tablaBebida');
+    
+        for (let bebida of data) {
         let fila = document.createElement('tr');
-        fila.innerHTML = '<td>' + bebida.codigo + '</td>' +
+        fila.innerHTML = '<td>' + bebida.idBebida + '</td>' +
         '<td>' + bebida.nombre + '</td>' +
-        '<td align="right">' + bebida.precio + '</td>' +'<td><img src=static/img/'
-        + bebida.imagen_url +'alt="Imagen del producto" style="width: 100px;"></td>' 
+        '<td align="right">' + bebida.precio + '</td>' +
+        '<td><img src="static/imagenes/' + bebida.imagen + '" alt="Imagen del producto" style="width: 100px;"></td>'; // Corregida la URL de la imagen
 
     tablaBebida.appendChild(fila);
     }
