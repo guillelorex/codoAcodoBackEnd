@@ -14,28 +14,35 @@
 
 <body>
     <h1>Crear Usuario</h1>
-   
+    <center>
     <form id="formularioCreateM" enctype="multipart/form-data">
+        <div>
         <label for="codigo">Código:</label>
         <input type="text" id="codigo" name="codigo" required><br>
-
+        </div>
+        <div>
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br>
-        
+        </div>
+        <div>
         <label for="apellido">Apellido:</label>
         <input type="text" id="apellido" name="apellido" required><br>
-        
+        </div>
+        <div>
         <label for="mail">Mail:</label>
         <input type="text" id="mail" name="mail" required><br>
-
+        </div>
+        <div>
         <label for="usuario">Usuario:</label>
         <input type="text" id="usuario" name="usuario" required><br>
-
-
+        </div>
+        <div>
         <button type="submit">Agregar Usuario</button>
+        </div>
         <a href="index.html">Inicio</a> <!-- agregar un inicio de sesion en el index-->
     </form>
-    <script src="javaScripts\CreateUsuario.js"></script>
-    <script src="javaScripts\dom.js"></script>
+    </center>
+    <script src="../javaScripts/CreateUsuario.js"></script>
+    <script src="../javaScripts/dom.js"></script>
 </body>
 </html>
