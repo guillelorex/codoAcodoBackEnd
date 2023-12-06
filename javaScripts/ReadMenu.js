@@ -18,7 +18,7 @@ fetch(URL + 'platillos')
         '<td align="right">' + menu.precio + '</td>' +'<td><img src=static/img/'
         + menu.imagen_url +'alt="Imagen del producto" style="width: 100px;"></td>' 
 
-    tablaMenu.appendChild(fila);
+    //tablaMenu.appendChild(fila);
     }
     })
     .catch(function (error) {
