@@ -65,7 +65,23 @@ function buildTableBebida(data) {
     }
     hideViewButton();
     showClearButton();
-
 }
 
+function mostrarFormCrear() {
+    hideCrearButton();
+    var b = document.querySelector("#container-form");
+    b.classList.toggle("hide");
+    showFormHideButton();
+}
 
+function hideCrearButton() {
+    var b = document.querySelector("#crear-button");
+    if (!b.classList.contains("hide")) {
+        b.classList.toggle("hide");
+    }
+}
+
+function showFormHideButton() {
+    var b = document.querySelector("#FormHide-button");
+    b.classList.toggle("hide");
+}

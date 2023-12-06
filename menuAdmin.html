@@ -14,17 +14,6 @@
     <div id="contenedor-nav"></div>
     <main>
         <h1>Menu</h1> 
-        <h2>Lista se Platillos Nuestra Rest-Api</h2>
-        <div class="container-botones">
-            <button id="view-buttonDos" class="" onclick="retrieveFood();">Ver Platillos</button>
-            <button id="clear-buttonDos" class="hide" onclick="clearTableDos();">Ocultar Lista</button>
-        </div>
-        <div class="container-api">
-            <table>
-            <tbody id="tablaMenu">
-            </tbody>
-            </table>
-        </div>
         <h2>Lista de Bebidas Nuestra Rest-Api</h2>
         <div class="container-botones">
             <button id="view-button" class="" onclick="retrieveDrinks();">Ver Tragos</button>
@@ -34,12 +23,64 @@
             <table>
             <tbody id="tablaBebida">
             </tbody>
+            </table>    
+        </div>
+        <button id="crear-button" class="" onclick="mostrarFormCrear();">Agregar Bebida</button>
+        <div id="container-form" class="hide">
+            <h2>Agregar Platillo</h2>
+            <form id="formularioCreateM" enctype="multipart/form-data">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" required><br>
+        
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required><br>
+        
+                <label for="precio">Precio:</label>
+                <input type="number" step="0.01" id="precio" name="precio" required><br>
+        
+                <label for="imagenProducto">Imagen</label>
+                <input type="file" id="imagen" name="imagen">
+        
+                <button type="submit">Agregar Menu</button>
+                <button id="FormHide-button"  class="hide" onclick="">Cancelar</button>
+            </form>
+        </div>  
+        <h2>Lista se Platillos Nuestra Rest-Api</h2>
+        <div class="container-botones">
+            <button id="view-buttonDos" class="" onclick="retrieveFood();">Ver Platillos</button>
+            <button id="clear-buttonDos"  class="hide" onclick="clearTableDos();">Ocultar Lista</button>
+        </div>
+        <div class="container-api">
+            <table>
+            <tbody id="tablaMenu">
+            </tbody>
             </table>
         </div>
+        <button id="crear-buttonDos" class="" onclick="mostrarCrearDos();">Crear Platillo</button>
+        <div id="container-formDos" class="hide">
+            <h2>Agregar Platillo</h2>
+            <form id="formularioCreateM" enctype="multipart/form-data">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" required><br>
+        
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required><br>
+        
+                <label for="precio">Precio:</label>
+                <input type="number" step="0.01" id="precio" name="precio" required><br>
+        
+                <label for="imagenProducto">Imagen</label>
+                <input type="file" id="imagen" name="imagen">
+        
+                <button type="submit">Agregar Menu</button>
+            </form>
+            <button id="FormHide-buttonDos"  class="hide" onclick="">Cancelar</button>
+        </div>  
     </main>
     <footer id="contenedor-footer"></footer>
 </body>
-<script src="../javaScripts/MenuAdmin.js"></script>
-<script src="../javaScripts/MenuAdminDos.js"></script>
-<script src="../javaScripts/DOM.js"></script>
+    <script src="../javaScripts/MenuAdmin.js"></script>
+    <script src="../javaScripts/MenuAdminDos.js"></script>
+    <script src="../javaScripts/CreateMenu.js"></script>
+    <script src="../javaScripts/DOM.js"></script>
 </html>
