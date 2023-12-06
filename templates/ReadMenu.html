@@ -11,20 +11,104 @@
 </head>
 <body>
     <h1>Listado de Menu</h1>
-<table>
-    <thead>
+    <form id=formpedido action="">
+<table id="TablaMenu">
+    <thead> 
         <tr>
+        <th>Seleccione</th>
         <th>Código</th>
         <th>Nombre</th>
         <th align="right">Precio</th>
         <th>Imagen</th>
         </tr>
+        <tr>
+            <th> <input type="checkbox" name="platillo" id="1" value="1"></th>
+            <th>1</th>
+            <th>Pizza</th>
+            <th align="right">12.99</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <th> <input type="checkbox"name="platillo" id="2" value="2"></th>
+            <th>2</th>
+            <th>Burger</th>
+            <th align="right">8.99</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <th> <input type="checkbox" name="platillo" id="3" value="3"></th>
+            <th>3</th>
+            <th>Sushi</th>
+            <th align="right">15.99</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <th> <input type="checkbox" name="platillo" id="4" value="4"></th>
+            <th>4</th>
+            <th>Pasta</th>
+            <th align="right">10.99</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <th> <input type="checkbox" name="platillo" id="5" value="5"></th>
+            <th>5</th>
+            <th>Steak</th>
+            <th align="right">19.99</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <th> <input type="checkbox" name="platillo" id="6" value="6"></th>
+            <th>6</th>
+            <th>Ramen</th>
+            <th align="right">9.99</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <th> <input type="checkbox" name="platillo" id="7" value="7"></th>
+            <th>7</th>
+            <th>Salad</th>
+            <th align="right">7.99</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <th> <input type="checkbox" name="platillo" id="8" value="8"></th>
+            <th>8</th>
+            <th>Tacos</th>
+            <th align="right">11.99</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <th> <input type="checkbox" name="platillo" id="9" value="9"></th>
+            <th>9</th>
+            <th>Curry</th>
+            <th align="right">13.99</th>
+            <th>Imagen</th>
+        </tr>
+        <tr>
+            <th> <input type="checkbox" name="platillo" id="10" value="10"></th>
+            <th>10</th>
+            <th>Fish and Chips</th>
+            <th align="right">14.99</th>
+            <th>Imagen</th>
+        </tr>
+
     </thead>
-        <tbody id="tablaMenu"> </tbody>
 </table>
+
+<input class="boton" type="submit" value="Hacer Pedido" onclick="realizarPedido()">
+
+</form>
  <div class="contenedor-centrado">
     <a href="index.html">Menu principal</a>
 </div>
 <script src="../javaScripts/ReadMenu.js"></script>
+
+<script>
+    function realizarPedido() {
+        alert('Pedido realizado');
+    }
+</script>
+
+
 </body>
 </html>
