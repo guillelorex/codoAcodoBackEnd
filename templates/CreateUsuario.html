@@ -15,9 +15,9 @@
 <body>
     <h1>Crear Usuario</h1>
    
-    <form id="formularioCreateM" enctype="multipart/form-data">
-        <label for="codigo">Código:</label>
-        <input type="text" id="codigo" name="codigo" required><br>
+    <form id="formularioCreateCliente" enctype="multipart/form-data">
+        <label for="idCliente">Código:</label>
+        <input type="text" id="idCliente" name="idCliente" required><br>
 
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br>
@@ -28,14 +28,14 @@
         <label for="mail">Mail:</label>
         <input type="text" id="mail" name="mail" required><br>
 
-        <label for="usuario">Usuario:</label>
-        <input type="text" id="usuario" name="usuario" required><br>
+        <label for="tipoUsuario">Usuario:</label>
+        <input type="text" id="tipoUsuario" name="tipoUsuario" pattern="[a-z]+" required><br>
 
 
         <button type="submit">Agregar Usuario</button>
         <a href="index.html">Inicio</a> <!-- agregar un inicio de sesion en el index-->
     </form>
-    <script src="javaScripts\CreateUsuario.js"></script>
-    <script src="javaScripts\dom.js"></script>
+    <script src="../javaScripts/CreateUsuario.js"></script>
+
 </body>
 </html>

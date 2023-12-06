@@ -71,7 +71,6 @@ function mostrarFormCrear() {
     hideCrearButton();
     var b = document.querySelector("#container-form");
     b.classList.toggle("hide");
-    showFormHideButton();
 }
 
 function hideCrearButton() {
@@ -81,7 +80,11 @@ function hideCrearButton() {
     }
 }
 
-function showFormHideButton() {
-    var b = document.querySelector("#FormHide-button");
-    b.classList.toggle("hide");
+function ocultarFormCrear() {
+    var b = document.querySelector("#container-form");
+    if (!b.classList.contains("hide")) {
+        b.classList.toggle("hide");
+    }
+    var c = document.querySelector("#crear-button");
+    c.classList.toggle("hide");
 }

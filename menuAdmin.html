@@ -27,7 +27,7 @@
         </div>
         <button id="crear-button" class="" onclick="mostrarFormCrear();">Agregar Bebida</button>
         <div id="container-form" class="hide">
-            <h2>Agregar Platillo</h2>
+            <h2>Agregar Bebida</h2>
             <form id="formularioCreateM" enctype="multipart/form-data">
                 <label for="codigo">Código:</label>
                 <input type="text" id="codigo" name="codigo" required><br>
@@ -42,9 +42,12 @@
                 <input type="file" id="imagen" name="imagen">
         
                 <button type="submit">Agregar Menu</button>
-                <button id="FormHide-button"  class="hide" onclick="">Cancelar</button>
             </form>
-        </div>  
+            <button id="FormHide-button"  class="" onclick="ocultarFormCrear();">Cancelar</button>
+        </div> 
+        
+        
+
         <h2>Lista se Platillos Nuestra Rest-Api</h2>
         <div class="container-botones">
             <button id="view-buttonDos" class="" onclick="retrieveFood();">Ver Platillos</button>
