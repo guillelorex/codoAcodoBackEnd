@@ -9,7 +9,7 @@ formData.append('nombre',document.getElementById('nombre').value);
 formData.append('fecha', document.getElementById('fecha').value);
 formData.append('personas',document.getElementById('personas').files[0]);
 // Realizamos la solicitud POST al servidor
-fetch(URL + 'productos', {
+fetch(URL + 'reservas', {
 method: 'POST',body: formData // Aquí enviamos formData en lugar de JSON
 })
 //Después de realizar la solicitud POST, se utiliza el método then() para manejar la respuesta del servidor.
