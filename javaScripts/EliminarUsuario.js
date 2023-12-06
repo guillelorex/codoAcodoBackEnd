@@ -1,34 +1,34 @@
-const URL = "http://127.0.0.1:5000/"
+const URL = "https://guillelorex.pythonanywhere.com/"
 const app = Vue.createApp({
-data() {
-    return {
-        usuarios: []
-    }
+    data() {
+        return {
+            clientes: []
+        }
 },
 methods: {
-    obtenerUsuario() {
+    obtenerCliente() {
     // Obtenemos el contenido del inventario
-    fetch(URL + 'usuario')
-        .then(response => {
-        // Parseamos la respuesta JSON
-        if (response.ok) { return response.json(); }
-        })
-        .then(data => {
-            // El código Vue itera este elemento para generar la tabla
-            this.usuario = data;
-        })
-        .catch(error => {
-            console.log('Error:', error);
-            alert('Error al obtener el usuario.');
-        });
+        fetch(URL + 'clientes')
+            .then(response => {
+            // Parseamos la respuesta JSON
+            if (response.ok) { return response.json(); }
+            })
+            .then(data => {
+                // El código Vue itera este elemento para generar la tabla
+                this.clientes = data;
+            })
+            .catch(error => {
+                console.log('Error:', error);
+                alert('Error al obtener el cliente.');
+            });
     },
-    eliminarUsuario(codigo) {
-        if (confirm('¿Estás seguro de que quieres eliminar este usuario?')) {
-            fetch(URL + `usuario/${codigo}`, { method: 'DELETE' })
+    eliminarCliente(codigo) {
+        if (confirm('¿Estás seguro de que quieres eliminar este cliente?')) {
+            fetch(URL + `clientes/${codigo}`, { method: 'DELETE' })
                 .then(response => {
                 if (response.ok) {
-                    this.usuario = this.usuario.filter(usuarios => usuarios.codigo !== codigo);
-                    alert('Usuario eliminado correctamente.');
+                    this.clientes = this.clientes.filter(cliente => cliente.codigo !== codigo);
+                    alert('Cliente eliminado correctamente.');
                 }
                 })
                 .catch(error => {
@@ -38,7 +38,7 @@ methods: {
     }
 },
 mounted() {//Al cargar la página, obtenemos la lista de productos
-    this.obtenerUsuario();
+    this.obtenerCliente();
 }
 });
-app.mount('body');
+app.mount('body'); 

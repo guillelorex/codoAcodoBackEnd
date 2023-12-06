@@ -1,27 +1,32 @@
 function validaform() {
-    if (document.formulario.nombre.value.length <3) {
+    /*if (document.formulario.nombre.value.length <3) {
         alert("Tiene que escribir su nombre. Debe tener 3 caracteres o más");
         document.formulario.nombre.focus();
         return false;
     }
 
-    let apellido = document.getElementById("ape").value;
+     let apellido = document.getElementById("ape").value;
 	if( apellido.length < 3)
 	{
 		alert("El apellido tiene que tener al menos 3 letras. Ingrese nuevamente.");
         document.formulario.apellido.focus();
         return false;
-    }
+    } 
 
     let correo = document.getElementById("mail").value;
     if (!/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test(correo)) {
         alert("Ingrese un correo válido en el formato xxx@yyy.com.");
         document.formulario.mail.focus();
         return false;
-    }
+    }*/
+    let cliente = document.getElementById("idCliente").value;
+    if(cliente <1 || cliente>11){
+		alert ("No es un cliente valido. Ingrese nuevamente");
+        document.formulario.comensales.focus();
+        return false;
+	}
 
     let comensales = document.getElementById("cant").value;
-	
     if(comensales <1 || comensales>12){
 		alert ("No es valida la cantidad de comensales. Ingrese una cantidad entre 1 y 12 personas.");
         document.formulario.comensales.focus();
@@ -37,7 +42,7 @@ function validaform() {
         return false;
     }
 
-    let horarios = document.getElementsByName("horario");
+    /* let horarios = document.getElementsByName("horario");
     let horarioSeleccionado = false;
 
     for (let i = 0; i < horarios.length; i++) {
@@ -50,15 +55,15 @@ function validaform() {
     if (!horarioSeleccionado) {
         alert("Debe seleccionar un horario.");
         return false;
-    }
+    } */
 
 
     else {
         alert("Muchas gracias por elegirnos. Su reverva ha sido registrada");
         document.formulario.submit();
         return;
-    }
-    }
+    }}
+    
     
     
 
